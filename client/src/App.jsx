@@ -1,10 +1,31 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import { Dashboard } from "./pages/Dashboard";
+import { Projects } from "./pages/Projects";
+
 function App() {
   return (
-    <>
-      <div>
-        <h1 className="text-3xl">HRJ Blog</h1>
-      </div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/sing-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+
+        <Route
+          path="*"
+          element={
+            <div className="flex justify-center items-center text-6xl font-bold text-center h-auto">
+              <h1>NO PAGE</h1>
+            </div>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 
